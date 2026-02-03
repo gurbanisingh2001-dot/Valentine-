@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Manav Vohra</title>
+    <style>
+        body { 
+            text-align: center; font-family: 'Arial', sans-serif; background: #fff0f5; 
+            margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh;
+        }
+        .container { 
+            background: white; padding: 40px; border-radius: 30px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 85%; max-width: 400px;
+        }
+        h1 { color: #d63384; font-size: 1.6rem; }
+        .names { color: #ff85a2; font-weight: bold; margin-bottom: 20px; font-size: 0.9rem; }
+        .step { display: none; }
+        .active { display: block; }
+        button { 
+            padding: 15px 30px; font-size: 1.1rem; cursor: pointer; border-radius: 15px; 
+            border: none; margin: 10px; transition: 0.3s;
+        }
+        #yesBtn { background-color: #ff4d6d; color: white; }
+        #noBtn { background-color: #adb5bd; color: white; position: absolute; }
+        .heart { color: #ff4d6d; font-size: 3rem; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="names">FROM: GURBANI SINGH ❤️ TO: MANAV VOHRA</div>
+
+        <div id="step1" class="step active">
+            <h1>Manav Vohra,</h1>
+            <p>Will you be my Valentine?</p>
+            <button id="yesBtn" onclick="nextStep(2)">YES!</button>
+        </div>
+
+        <div id="step2" class="step">
+            <h1>Are you certain?</h1>
+            <p>Are you sure about me?</p>
+            <button id="yesBtn" onclick="nextStep(3)">Yes, I'm sure!</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        </div>
+
+        <div id="step3" class="step">
+            <h1>Yay! 🥰</h1>
+            <p>I am very excited to celebrate with you, Manav!</p>
+            <div class="heart">❤️</div>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(num) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + num).classList.add('active');
+        }
+        function moveButton() {
+            var x = Math.random() * (window.innerWidth - 100);
+            var y = Math.random() * (window.innerHeight - 100);
+            var btn = document.getElementById('noBtn');
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
